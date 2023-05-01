@@ -25,11 +25,9 @@ class SplashInteractor: SplashBusinessLogic, SplashDataStore {
  
     var presenter: SplashPresentationLogic?
     var worker: SplashWorker?
-    
-    // var name: String = ""
-  
+      
     // MARK: Do something
-  
+
   func doSomething(request: Splash.Something.Request) {
   
       worker = SplashWorker()
@@ -39,7 +37,6 @@ class SplashInteractor: SplashBusinessLogic, SplashDataStore {
           let response = Splash.Something.Response(response: ReachabilityResponse(isConnected: true, status: "Internet Connection Available!"))
           presenter?.presentSomething(response: response)
           print("Internet Connection Available!")
-          
       }
       else{
           print("Internet Connection not Available!")

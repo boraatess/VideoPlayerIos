@@ -13,7 +13,6 @@ struct ApiUrls {
     static let moviesAdditionals = "&sort_by=popularity.desc&include_adult=false&include_video=false&with_genres="
     static let sliderUrl  = baseUrl + "/movie/now_playing" + additionalValues
     static let movieListUrl  = baseUrl + "/discover/movie" + additionalValues
-    
     static let genresUrl  = baseUrl + "/genre/movie/list" + additionalValues
     static let imageUrl = "https://image.tmdb.org/t/p/w500"
 }

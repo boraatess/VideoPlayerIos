@@ -19,7 +19,6 @@ import UIKit
 
 protocol HomeDataPassing {
     var dataStore: HomeDataStore? { get }
-    
 }
 
 class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {

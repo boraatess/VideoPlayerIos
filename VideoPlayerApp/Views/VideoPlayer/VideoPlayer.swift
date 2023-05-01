@@ -9,7 +9,6 @@ import AVFoundation
 import AVKit
 import SnapKit
 
-
 class StreamingVideoPlayer {
     
     private let playerViewController = AVPlayerViewController()

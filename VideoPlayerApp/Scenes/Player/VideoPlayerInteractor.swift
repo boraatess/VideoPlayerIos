@@ -14,12 +14,10 @@ import UIKit
 
 protocol VideoPlayerBusinessLogic {
     func playerVideoRequest(request: VideoPlayer.FetchVideo.Request)
-    
 }
 
 protocol VideoPlayerDataStore {
     //var name: String { get set }
-    
 }
 
 class VideoPlayerInteractor: VideoPlayerBusinessLogic, VideoPlayerDataStore {

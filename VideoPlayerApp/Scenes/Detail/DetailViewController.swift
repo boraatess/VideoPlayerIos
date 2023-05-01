@@ -62,7 +62,6 @@ class DetailViewController: UIViewController, DetailDisplayLogic {
         super.init(coder: aDecoder)
         
         setup()
-        
     }
     
     // MARK: Setup
@@ -78,11 +77,9 @@ class DetailViewController: UIViewController, DetailDisplayLogic {
         presenter.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor
-        
     }
     
     // MARK: View lifecycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -91,30 +88,18 @@ class DetailViewController: UIViewController, DetailDisplayLogic {
         
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        DetailViewController.movieList.removeAll()
-    }
-    
     // MARK: Do something
-        
     func configureInteractor() {
-        
         let request = Detail.MovieList.Request()
-        
         interactor?.sendRequest(genreId: self.genreid ?? "", page: "1", pagination: false, movieList: DetailViewController.movieList, request: request)
-        
     }
     
     func displayMovies(viewModel: Detail.MovieList.ViewModel) {
-        
         print("displayed movie list view model : \(viewModel.displayedMovieList)")
         print("view model count: \(viewModel.displayedMovieList.count)")
         
         DetailViewController.movieList = viewModel.displayedMovieList
         
-        //nameTextField.text = viewModel.name
         DispatchQueue.main.async {
             self.collectionView.reloadData()
             
@@ -137,7 +122,6 @@ extension DetailViewController {
             
         }
       
-        
     }
     
 }
@@ -156,11 +140,8 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         let movieName = DetailViewController.movieList[indexPath.row].title
         router?.routeToVideoPlayer(movieName: movieName)
-        
-        
     }
    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -183,20 +164,16 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 self.collectionView.reloadData()
             }
             
-            
         }
         
     }
    
-    
-    
 }
 
 extension DetailViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.size.width/3.5, height: collectionView.frame.size.height/4)
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

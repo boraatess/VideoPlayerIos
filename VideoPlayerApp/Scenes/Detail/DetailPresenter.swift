@@ -13,15 +13,13 @@
 import UIKit
 
 protocol DetailPresentationLogic {
-  
     func presentFetchedMovies(movieList : [Detail.MovieList.ViewModel.DisplayedMovies], response: Detail.MovieList.Response)
 }
 
 class DetailPresenter: DetailPresentationLogic {
   
     weak var viewController: DetailDisplayLogic?
-    
- 
+
     func presentFetchedMovies(movieList : [Detail.MovieList.ViewModel.DisplayedMovies], response: Detail.MovieList.Response) {
 
         var displayedMovies : [Detail.MovieList.ViewModel.DisplayedMovies] = []

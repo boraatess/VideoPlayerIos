@@ -13,7 +13,6 @@
 import UIKit
 
 protocol VideoPlayerPresentationLogic {
- 
     func presentVideoPlayer(response: VideoPlayer.FetchVideo.Response)
 }
 

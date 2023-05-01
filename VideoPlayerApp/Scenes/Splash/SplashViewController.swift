@@ -34,7 +34,6 @@ class SplashViewController: UIViewController, SplashDisplayLogic {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
-        
     }
     
     // MARK: Setup
@@ -49,43 +48,25 @@ class SplashViewController: UIViewController, SplashDisplayLogic {
         presenter.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor
-        
     }
     
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("splash screen")
         view.backgroundColor = .white
-        doSomething()
+        configureInteractor()
         layout()
-        
     }
-   
-    func showHome() {
-        DispatchQueue.main.asyncAfter(deadline: .now()+5 ) {
-            let vc = HomeViewController()
-            let nav = UINavigationController(rootViewController: vc)
-            nav.modalPresentationStyle = .fullScreen
-            self.present(nav, animated: true)
-        }
-    }
-    
-    func doSomething() {
+
+    func configureInteractor() {
         let request = Splash.Something.Request()
         interactor?.doSomething(request: request)
-        layout()
-        
     }
-    
-    
+
     func displaySomething(viewModel: Splash.Something.ViewModel.ReachabilityViewModel) {
-        print("reachability view model : \(viewModel)")
-        //nameTextField.text = viewModel.name
-        
         if viewModel.isReachable {
-            showHome()
+            router?.navigateToHome()
         }
         else {
             Utils.shared.showPopup(title: "Warning!", message: viewModel.networkStatus, view: self)
@@ -98,34 +79,17 @@ extension SplashViewController {
     
     func layout() {
         view.backgroundColor = .white
-        
         configureAnimation()
-        
     }
     
     func configureAnimation() {
         animationView = .init(name: "data")
-        
         animationView!.frame = view.bounds
-        
-        // 3. Set animation content mode
-        
         animationView!.contentMode = .scaleAspectFit
-        
-        // 4. Set animation loop mode
-        
         animationView!.loopMode = .loop
-        
-        // 5. Adjust animation speed
-        
         animationView!.animationSpeed = 0.5
-        
         view.addSubview(animationView!)
-        
-        // 6. Play animation
-        
         animationView!.play()
-        
     }
     
 }

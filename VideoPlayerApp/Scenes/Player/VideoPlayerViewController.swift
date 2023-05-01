@@ -61,14 +61,12 @@ class VideoPlayerViewController: UIViewController, VideoPlayerDisplayLogic {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     
         setup()
- 
     }
   
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         setup()
-        
     }
   
     // MARK: Setup
@@ -90,10 +88,7 @@ class VideoPlayerViewController: UIViewController, VideoPlayerDisplayLogic {
         
         layout()
         configureInteractor()
-        print("Movie name is : \(self.movieName ?? "")")
-
         setupVideoPlayer()
-        
     }
     
     func setupVideoPlayer() {
@@ -142,7 +137,7 @@ class VideoPlayerViewController: UIViewController, VideoPlayerDisplayLogic {
 extension VideoPlayerViewController {
     
     func layout() {
-
+        title = "Video Player"
         view.backgroundColor = .white
         view.addSubview(contentView)
         contentView.snp.makeConstraints { make in
@@ -170,7 +165,5 @@ extension VideoPlayerViewController {
         movieNameLabel.text = self.movieName
     }
 
-    
-    
 }
 

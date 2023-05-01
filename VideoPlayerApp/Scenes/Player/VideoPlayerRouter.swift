@@ -14,20 +14,15 @@ import UIKit
 
 @objc protocol VideoPlayerRoutingLogic {
     
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
 }
 
 protocol VideoPlayerDataPassing {
-    
     var dataStore: VideoPlayerDataStore? { get }
-    
 }
 
 class VideoPlayerRouter: NSObject, VideoPlayerRoutingLogic, VideoPlayerDataPassing {
  
     weak var viewController: VideoPlayerViewController?
     var dataStore: VideoPlayerDataStore?
-  
-  
-    
+ 
 }

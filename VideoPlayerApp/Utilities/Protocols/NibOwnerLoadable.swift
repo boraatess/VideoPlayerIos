@@ -46,20 +46,3 @@ public extension NibOwnerLoadable where Self: UIView {
         }
     }
 }
-
-// Don't Forget To add For Xib View's
-//class AnyView: UIView, NibOwnerLoadable {
-//    // MARK: - IBOutlet
-//
-//    /// - TAG: Initializer
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        loadNibContent()
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        super.init(coder: coder)
-//        loadNibContent()
-//    }
-//}
-//

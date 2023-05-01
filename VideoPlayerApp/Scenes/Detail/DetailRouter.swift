@@ -14,14 +14,10 @@ import UIKit
 
 @objc protocol DetailRoutingLogic {
     func routeToVideoPlayer(movieName: String)
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
-    
 }
 
 protocol DetailDataPassing {
-    
     var dataStore: DetailDataStore? { get }
-    
 }
 
 class DetailRouter: NSObject, DetailRoutingLogic, DetailDataPassing {
@@ -37,5 +33,4 @@ class DetailRouter: NSObject, DetailRoutingLogic, DetailDataPassing {
     
     }
 
-    
 }

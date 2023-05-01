@@ -53,7 +53,6 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         }
         return tableView
     }()
-
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -65,7 +64,6 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         super.init(coder: aDecoder)
       
         setup()
-        
     }
       
     // MARK: Setup
@@ -122,8 +120,6 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     }
     
     func displayedSliderList(viewModel: Home.FetchSlider.ViewModel) {
-       // print("slider list view model : \(viewModel)")
-
         sliders = viewModel.displayedSliders
         sliderCollectionView.configure(with: viewModel.displayedSliders)
        
@@ -147,10 +143,8 @@ extension HomeViewController {
         sliderCollectionView.heightAnchor.constraint(equalToConstant: 400).isActive = true
         scrollView.stackView.addArrangedSubview(sliderCollectionView)
         
-       // tableView.heightAnchor.constraint(equalToConstant: 1000).isActive = true
         scrollView.stackView.addArrangedSubview(tableView)
-        
-        
+                
     }
     
 }
